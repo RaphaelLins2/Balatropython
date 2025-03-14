@@ -15,3 +15,5 @@ explicado na tabela a seguir:
 8  Flush em sequência    100     8
 
 caso precise saber qual mão é qual veja este link: https://www.gipsyteam.com.br/upload/Pageimage/default/2/5/2563-1689475808.jpg
+
+Observação: Este código tem objetivo apenas de aprendizagem
