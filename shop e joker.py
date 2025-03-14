@@ -9,37 +9,40 @@ geral = {
 }
 df = pd.DataFrame(geral)
 
-Planetarium = {
+Planetas = {
+    'Buff_hand': ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', "Full House", 'Quadra', 'Flush em sequência'],
     'Nome_Carta' : ['pluto', 'mercury', 'uranus','venus','saturno','jupiter','earth','mars','neptune'],
     'Aumento_chips' : [10,15,20,20,30,15,25,30,40],
     'Aumento_mult' : [1,1,1,2,3,2,2,3,4]
 }
-dfp = pd.DataFrame(Planetarium)
+dfp = pd.DataFrame(Planetas)
 
 print(f'{df}\n {dfp}')
+
 class Joker:
-    def __init__(self, jokers, legendary_jokers):
-        self.jokers = jokers
+    def __init__(self, nome, legendary_jokers, efeito):
+        self.nome= nome
         self.legendary_jokers = legendary_jokers
+        self.efeito = efeito
 
     def __str__(self):
         return f"Joker: {(self.jokers)}, Legendary Jokers: {(self.legendary_jokers)}"
 
 class Planetarium:
-    def __init__(self, pluto, mercury, venus, mars, saturn, jupiter, earth, neptune):
-        self.pluto = pluto
-        self.mercury = mercury
-        self.venus = venus
-        self.mars = mars
-        self.saturn = saturn
-        self.jupiter = jupiter
-        self.earth = earth
-        self.neptune = neptune
+    def __init__(self, mao_buff, nome, chips, mult):
+        self.nome = nome
+        self.chips = chips
+        self.mult = mult
+        self.mao_buff
 
     def __str__(self):
-        return (f"Planetarium: Pluto: {self.pluto}, Mercury: {self.mercury}, "
-                f"Venus: {self.venus}, Mars: {self.mars}, Saturn: {self.saturn}, "
-                f"Jupiter: {self.jupiter}, Earth: {self.earth}, Neptune: {self.neptune}")
+        return self.nome
+    
+    def shazam(self, nome, chips, mult, mao_buff):
+        df.at[self.mao_buff, "chips"]
+        
+
+
 
 class Shop:
     def __init__(self):
