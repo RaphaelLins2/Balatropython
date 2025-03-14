@@ -1,6 +1,9 @@
 import random
 import pandas as pd
 import pygame
+import colorama
+from colorama import Fore, Back, Style
+colorama.init()
 
 # Tabela de pontuação
 data = {
@@ -9,6 +12,15 @@ data = {
     'Mult': [1, 2, 2, 3, 4, 4, 4, 7, 8]
 }
 df = pd.DataFrame(data)
+
+
+color_map = {
+    '♥': Fore.RED,
+    '♦': Fore.YELLOW,
+    '♣': Fore.BLUE,
+    '♠': Fore.WHITE  # Mantendo branco porque preto pode não ser visível em terminais escuros
+}
+
 print(df)
 # Criando uma classe de cartas
 class Card:
@@ -18,7 +30,7 @@ class Card:
 
     def __str__(self):
         value_str = {1: 'A', 11: 'J', 12: 'Q', 13: 'K'}.get(self.value, str(self.value))
-        return f'{value_str}{self.color}'
+        return f"{color_map[self.color]}{value_str}{self.color}{Style.RESET_ALL}"
 
 naipes_prioridade = {'♥': 4, '♦': 3, '♣': 2, '♠': 1}
 colors = ['♥', '♦', '♣', '♠']
@@ -125,17 +137,19 @@ while True:
             input("\nOpção inválida. Selecione apenas (J) ou (D)\nPressione Enter para continuar")
         else:
             break
-    
-    if jogar_ou_descarte == "D" and maos_descartadas < limite_descartes:
-        print("Você descartou as cartas.")
-        maos_descartadas += 1
-    elif jogar_ou_descarte == "J":
-        pontos_ganhos = (chips_mao+chips) * mult
-        pontuacao += pontos_ganhos
-        print(f"Você ganhou {pontos_ganhos} pontos!")
-        maos_jogadas += 1
-    else:
-        input("\nVocê não tem mais descartes, Jogue uma mão!\nPressione Enter para continuar")
+    while True:
+        if jogar_ou_descarte == "D" and maos_descartadas < limite_descartes:
+            print("Você descartou as cartas.")
+            maos_descartadas += 1
+            break
+        elif jogar_ou_descarte == "J":
+            pontos_ganhos = (chips_mao+chips) * mult
+            pontuacao += pontos_ganhos
+            print(f"Você ganhou {pontos_ganhos} pontos!")
+            maos_jogadas += 1
+            break
+        else:
+            input("\nVocê não tem mais descartes, Jogue uma mão!\nPressione Enter para continuar")
         
     
     for carta in cartas_para_remover:
@@ -150,7 +164,7 @@ while True:
         pontuacao = 0
         maos_jogadas = 0
         maos_descartadas = 0
-        upgrade = 5
+        upgrade = random.randint(1,5)
         print(f"\nParabéns! Você subiu para o nível {nivel}!\n agora sua recompensa:")
         match upgrade:
             case 1:
@@ -187,9 +201,10 @@ while True:
         
         input("Pressione enter para continuar")
         deck = [Card(value, color) for value in range(1, 14) for color in colors]
-        for i in range(len(hand)):
-            hand.pop(i)
-        embaralhar
+        embaralhar()
+        hand = []
+        tamanho_mao_atual = 0
+        fill_hands()
         
     if maos_jogadas >= limite_maos :
         break
