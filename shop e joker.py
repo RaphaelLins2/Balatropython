@@ -39,9 +39,9 @@ class Planetarium:
         return self.nome
     
     def shazam(self, nome, chips, mult, mao_buff):
-        df.at[self.mao_buff, "chips"]
+        index= list
+        df.at[self.mao_buff, "Chips"]
         
-
 
 
 class Shop:
@@ -78,4 +78,4 @@ shop = Shop()
 for _ in range(3):
     shop.reroll() 
     shop.display_shop() 
-    print()  # Print a newline for better readability
+    print()  # Print a newline for better readability'
