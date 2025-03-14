@@ -165,7 +165,7 @@ while True:
         maos_jogadas = 0
         maos_descartadas = 0
         upgrade = random.randint(1,5)
-        print(f"\nParabéns! Você subiu para o nível {nivel}!\n agora sua recompensa:")
+        print(f"\nParabéns! Você subiu para o nível {nivel}!\nagora sua recompensa:")
         match upgrade:
             case 1:
                 limite_maos +=1

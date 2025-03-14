@@ -9,6 +9,14 @@ geral = {
 }
 df = pd.DataFrame(geral)
 
+Planetarium = {
+    'Nome_Carta' : ['pluto', 'mercury', 'uranus','venus','saturno','jupiter','earth','mars','neptune'],
+    'Aumento_chips' : [10,15,20,20,30,15,25,30,40],
+    'Aumento_mult' : [1,1,1,2,3,2,2,3,4]
+}
+dfp = pd.DataFrame(Planetarium)
+
+print(f'{df}\n {dfp}')
 class Joker:
     def __init__(self, jokers, legendary_jokers):
         self.jokers = jokers
@@ -35,8 +43,8 @@ class Planetarium:
 
 class Shop:
     def __init__(self):
-        self.planetarium_chance = 0.75  # 2.5% chance
-        self.joker_chance = 0.25  # 7.5% chance
+        self.planetarium_chance = 0.75  # 75% chance
+        self.joker_chance = 0.25  # 25% chance
         self.shitem = []
 
     def reroll(self):
@@ -48,7 +56,9 @@ class Shop:
 
         # Randomly choose one Planetarium based on its chance
         if random.random() < self.planetarium_chance:
-            self.shitem.append(Planetarium("Pluto", "Mercury", "Venus", "Mars", "Saturn", "Jupiter", "Earth", "Neptune"))  # Create an instance of Planetarium
+            qual_carta=random.randint(0,8)
+            print(f"carta planetário escolhida: {dfp.at[qual_carta,'Nome_Carta']}")
+            self.shitem.append(dfp.at[qual_carta,'Nome_Carta'])
 
         # If neither is selected, you can choose to add a message or leave it empty
         if not self.shitem:
