@@ -1,21 +1,13 @@
 import random
 import pandas as pd
 
-# DataFrame for poker hands
-geral = {
-    'Nome da mão': ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', "Full House", 'Quadra', 'Flush em sequência'],
-    'Chips': [5, 10, 20, 30, 30, 35, 40, 60, 100],
-    'Mult': [1, 2, 2, 3, 4, 4, 4, 7, 8]
-}
-df = pd.DataFrame(geral)
+import tabelas
 
-Planetas = {
-    'Buff_hand': ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', "Full House", 'Quadra', 'Flush em sequência'],
-    'Nome_Carta' : ['pluto', 'mercury', 'uranus','venus','saturno','jupiter','earth','mars','neptune'],
-    'Aumento_chips' : [10,15,20,20,30,15,25,30,40],
-    'Aumento_mult' : [1,1,1,2,3,2,2,3,4]
-}
-dfp = pd.DataFrame(Planetas)
+# DataFrame for poker hands
+
+df = tabelas.df
+
+dfp = tabelas.dfp
 
 print(f'{df}\n {dfp}')
 
@@ -33,7 +25,7 @@ class Planetarium:
         self.nome = nome
         self.chips = chips
         self.mult = mult
-        self.mao_buff
+        self.mao_buff 
 
     def __str__(self):
         return self.nome

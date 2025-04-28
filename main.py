@@ -3,16 +3,11 @@ import random
 import pandas as pd
 import colorama
 from colorama import Fore, Back, Style
+import tabelas
+
+df = tabelas.df
 
 colorama.init()
-
-# Tabela de pontuação
-data = {
-    'Nome da mão': ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', 'Full House', 'Quadra', 'Flush em sequência'],
-    'Chips': [5, 10, 20, 30, 30, 35, 40, 60, 100],
-    'Mult': [1, 2, 2, 3, 4, 4, 4, 7, 8]
-}
-df = pd.DataFrame(data)
 
 #tabela de cores para cada naipe
 color_map = {
