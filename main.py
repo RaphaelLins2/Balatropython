@@ -1,9 +1,10 @@
 #importando todas as bibliotecas necessárias para o código
 import random
-import pandas as pd
 import colorama
-from colorama import Fore, Back, Style
 import tabelas
+import shop
+from colorama import Fore, Back, Style
+
 
 df = tabelas.df
 
@@ -203,9 +204,28 @@ def ganhou():
     pontuacao = 0
     maos_jogadas = 0
     maos_descartadas = 0
-    upgrade = random.randint(1,5)
+
+    Test = True
+    if Test == True:
+        upgrade =0
+    else:
+        upgrade = random.randint(1,5)
     print(f"\nParabéns! Você subiu para o nível {nivel}!\nagora sua recompensa:")
+    
     match upgrade:
+        case 0:
+            #Caso teste, não deve realmente ser possivel chegar nesse caso de vitória
+
+            planeta = shop.Planetarium(random.randint(0,8))
+            print(f'Carta planeta! Você ganhou a carta {planeta.nome}')
+            print(f'Ela buffa a mão {planeta.mao_buff}')
+            usarounao = input(f"Você gostaria de usar ela? [s/n]")
+            if usarounao == 's':
+                input(df)
+                planeta.use()
+                print('Foi usado planeta!')
+                input(df)
+            
         case 1:
             limite_maos +=1
             print("Drop comum\nSeu limite de mãos foi aumentado!")

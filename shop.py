@@ -21,19 +21,23 @@ class Joker:
         return f"Joker: {(self.jokers)}, Legendary Jokers: {(self.legendary_jokers)}"
 
 class Planetarium:
-    def __init__(self, mao_buff, nome, chips, mult):
-        self.nome = nome
-        self.chips = chips
-        self.mult = mult
-        self.mao_buff 
-
-    def __str__(self):
-        return self.nome
-    
-    def shazam(self, nome, chips, mult, mao_buff):
-        index= list
-        df.at[self.mao_buff, "Chips"]
+    def __init__(self, planetaescolhido):
+        #se transforma em uma carta baseado no número dado
+        self.nome       = dfp.at[planetaescolhido, 'Nome_Carta']
+        self.mao_buff   = dfp.at[planetaescolhido, 'Buff_hand']
+        self.chips      = dfp.at[planetaescolhido, 'Aumento_chips']
+        self.mult       = dfp.at[planetaescolhido, 'Aumento_mult']
         
+
+    def use(self):
+            print(f'dando um buff para a mão: {self.mao_buff}')
+
+            df.loc[df['Nome da mão']== self.mao_buff, 'Chips'] += self.chips
+            df.loc[df['Nome da mão']== self.mao_buff, 'Mult'] += self.mult     
+            
+
+
+
 
 
 class Shop:
@@ -64,10 +68,11 @@ class Shop:
         print("Loja Renovada")
         for item in self.shitem:
             print(f"- {item} -")  # Display the string representation of the item
-
+'''
 # Example usage
 shop = Shop()
 for _ in range(3):
     shop.reroll() 
     shop.display_shop() 
     print()  # Print a newline for better readability'
+'''

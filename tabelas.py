@@ -7,10 +7,14 @@ data = {
 }
 df = pd.DataFrame(data)
 
+
 Planetas = {
-    'Buff_hand'     :   ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', "Full House", 'Quadra', 'Flush em sequência'],
     'Nome_Carta'    :   ['pluto', 'mercury', 'uranus','venus','saturno','jupiter','earth','mars','neptune'],
+    'Buff_hand'     :   ['Carta Alta', 'Par', 'Dois Par', 'Trinca', 'Sequência', 'Flush', "Full House", 'Quadra', 'Flush em sequência'],
+    
     'Aumento_chips' :   [10,15,20,20,30,15,25,30,40],
     'Aumento_mult'  :   [1,1,1,2,3,2,2,3,4]
 }
 dfp = pd.DataFrame(Planetas)
+
+
