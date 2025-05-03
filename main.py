@@ -215,8 +215,10 @@ def ganhou():
     match upgrade:
         case 0:
             #Caso teste, não deve realmente ser possivel chegar nesse caso de vitória
-
-            planeta = shop.Planetarium(random.randint(0,8))
+            
+            aleatorio08 = random.randint(0,8)
+            print(f'feito um novo número aléatório para a planet card\nnúmero escolhido: {aleatorio08}')
+            planeta = shop.Planetarium(aleatorio08)
             print(f'Carta planeta! Você ganhou a carta {planeta.nome}')
             print(f'Ela buffa a mão {planeta.mao_buff}')
             usarounao = input(f"Você gostaria de usar ela? [s/n]")
@@ -261,7 +263,14 @@ def ganhou():
     input("Pressione enter para continuar")
     #coloca todas as cartas que antes foram descartadas de volta no deck e então o embaralha
     for item in cartas_descartadas:
+        #adicionado as cartas de volta no deck
         deck.append(item)
+    for cartanamao in hand:
+        #fazendo exatamente a mesma coisa de cima porém com as cartas restantes na mão para
+        #ter certeza que todas as cartas voltarão para o baralho
+        deck.append(cartanamao)
+    #removendo todas as cartas da pilha de descarte para ter certeza que não haverá cópias
+    cartas_descartadas = []
     embaralhar()
     hand = []
     tamanho_mao_atual = 0
